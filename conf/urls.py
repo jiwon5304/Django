@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), # URL Reverse : 임의의 주소로 변경해도 내부에서 주소로 찾아가는 기능
+    path('instagram', include('instagram.urls')),
 ]

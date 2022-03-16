@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView, RedirectView
 
 urlpatterns = [
+    # path('', TemplateView.as_view(template_name='root.html'), name='root'), # URL Reverse : 임의의 주소로 변경해도 내부에서 주소로 찾아가는 기능
+    path('', RedirectView.as_view(
+        # url='/instagram/'
+        pattern_name='instagram:post_list'
+        ), name='root'), # URL Reverse : 임의의 주소로 변경해도 내부에서 주소로 찾아가는 기능
     path('admin/', admin.site.urls), # URL Reverse : 임의의 주소로 변경해도 내부에서 주소로 찾아가는 기능
-    path('instagram', include('instagram.urls')),
+    path('k-instagram/', include('instagram.urls')),
 ]

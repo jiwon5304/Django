@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Post(models.Model):
     message = models.TextField()
@@ -18,3 +19,6 @@ class Post(models.Model):
     # def message_length(self):
     #     return len(self.message)
     # message_length.short_dsecription = '메세지 글자수'
+    
+    def get_absolute_url(self):
+        return reverse('instagram:post_detail', args=[self.pk])

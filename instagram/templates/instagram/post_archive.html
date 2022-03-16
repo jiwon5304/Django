@@ -1,0 +1,13 @@
+{{ latest }}
+
+<h2>date_list</h2>
+
+{% for date in date_list %}
+
+    {% comment %} 연도 표시법 1) {% endcomment %}
+    {% comment %} {{ date|date:"Y" }} {% endcomment %}
+
+    {% comment %} 연도 표시법 2) {% endcomment %}
+    {{ date.year }}
+    
+{% endfor %}
